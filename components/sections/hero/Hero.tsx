@@ -35,7 +35,7 @@ export default function Hero() {
   const [edges, , onEdgesChange] = useEdgesState(initialEdges);
 
   return (
-    <div className="w-full h-175 relative bg-zinc-50 dark:bg-zinc-950">
+    <div className="relative h-175 w-full">
       <ReactFlow
         nodes={nodes}
         edges={edges}

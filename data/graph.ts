@@ -1,5 +1,5 @@
 import { Node, Edge } from "@xyflow/react";
-import { NotebookPen } from "lucide-react";
+import { BriefcaseBusiness, NotebookPen } from "lucide-react";
 
 export const nodes: Node[] = [
   {
@@ -33,9 +33,62 @@ export const nodes: Node[] = [
     data: {
       title: "GitHub",
       href: "https://github.com/mrobox7",
-      icon: "github",
+      image: "/github.png",
       size: "lg",
       accentColor: "#181717",
+    },
+  },
+
+  {
+    id: "linkedin",
+    type: "social",
+    position: { x: 175, y: 382 }, // adjust visually
+    data: {
+      href: "https://www.linkedin.com/in/mohit-bajaj-775693214/",
+      image: "/linkedin.png",
+      size: "xs",
+      accentColor: "#0A66C2",
+    },
+  },
+
+  {
+    id: "instagram",
+    type: "social",
+    position: { x: 105, y: 318 }, // adjust visually
+    data: {
+      href: "https://instagram.com/wtfisbajaj",
+      image: "/instagram.png",
+      size: "xs",
+      accentColor: "#E4405F",
+    },
+  },
+
+  {
+    id: "experience",
+    type: "section",
+    position: { x: 602.1278688524591, y: 178.81311475409836 },
+    data: {
+      title: "Experience",
+      icon: BriefcaseBusiness,
+      size: "md",
+      accentColor: "#FF8904",
+      onClick: () => {
+        document
+          .getElementById("experience")
+          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+      },
+    },
+  },
+
+  {
+    id: "cuemath",
+    type: "social",
+    position: { x: 735, y: 112 },
+    data: {
+      href: "https://instagram.com/wtfisbajaj",
+      image: "/cuemath.png",
+      size: "xs",
+      accentColor: "#FFFFFF",
     },
   },
 
@@ -45,7 +98,6 @@ export const nodes: Node[] = [
     position: { x: 557.1278688524591, y: 338.81311475409836 },
     data: {
       title: "Projects",
-      icon: "folder",
       size: "md",
       accentColor: "#22c55e",
     },
@@ -89,16 +141,36 @@ export const edges: Edge[] = [
   {
     id: "3",
     source: "profile",
-    target: "blog",
+    target: "experience",
   },
   {
     id: "4",
     source: "profile",
-    target: "resume",
+    target: "blog",
   },
   {
     id: "5",
+    source: "profile",
+    target: "resume",
+  },
+  {
+    id: "6",
     source: "github",
     target: "leetcode",
+  },
+  {
+    id: "7",
+    source: "profile",
+    target: "linkedin",
+  },
+  {
+    id: "8",
+    source: "linkedin",
+    target: "instagram",
+  },
+  {
+    id: "9",
+    source: "experience",
+    target: "cuemath",
   },
 ];

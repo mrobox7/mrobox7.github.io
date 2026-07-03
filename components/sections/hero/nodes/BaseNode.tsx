@@ -13,13 +13,14 @@ interface BaseNodeProps {
   children: ReactNode;
   overlay?: OverlayConfig;
 
-  size?: "sm" | "md" | "lg" | "xl";
+  size?: "xs" | "sm" | "md" | "lg" | "xl";
   accentColor?: string;
   onClick?: () => void;
   className?: string;
 }
 
 const sizeClasses = {
+  xs: "w-14 h-14",
   sm: "w-22 h-22",
   md: "w-28 h-28",
   lg: "w-36 h-36",
@@ -85,8 +86,8 @@ export default function BaseNode({
           backgroundColor: toRgba(accentColor, 0.75),
           borderColor: toRgba(accentColor, 0.25),
           boxShadow: `
-            0 20px 50px rgba(0,0,0,.25),
-            0 0 35px ${toRgba(accentColor, 0.75)},
+            0 10px 20px rgba(0,0,0,.25),
+            0 0 18px ${toRgba(accentColor, 0.75)},
             inset 0 1px 0 rgba(255,255,255,.15)
           `,
         }}
