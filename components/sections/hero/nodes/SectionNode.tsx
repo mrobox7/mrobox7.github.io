@@ -1,29 +1,34 @@
 "use client";
 
+import { type Node, type NodeProps } from "@xyflow/react";
 import BaseNode from "./BaseNode";
 import { Folder } from "lucide-react";
 
-interface SectionNodeProps {
+import type { LucideIcon } from "lucide-react";
+
+type SectionData = {
   title: string;
-  icon?: React.ReactNode;
+  icon?: LucideIcon;
   onClick?: () => void;
   size?: "sm" | "md" | "lg";
-}
+  accentColor?: string;
+};
 
-export default function SectionNode({
-  title,
-  icon,
-  onClick,
-  size = "md",
-}: SectionNodeProps) {
+type SectionNodeType = Node<SectionData>;
+
+export default function SectionNode({ data }: NodeProps<SectionNodeType>) {
+  const { title, icon, onClick, size = "md", accentColor } = data;
+
+  const Icon = icon ?? Folder;
+
   return (
-    <BaseNode size={size} onClick={onClick}>
-      <div className="flex flex-col items-center justify-center gap-2 text-center">
-        <div className="text-3xl text-cyan-400">
-          {icon ?? <Folder size={32} />}
+    <BaseNode size={size} accentColor={accentColor} onClick={onClick}>
+      <div className="flex flex-col items-center justify-center gap-1 text-center">
+        <div className="text-white">
+          <Icon size={32} />
         </div>
 
-        <p className="text-sm font-medium">{title}</p>
+        <p className="text-sm font-mono">{title}</p>
       </div>
     </BaseNode>
   );
