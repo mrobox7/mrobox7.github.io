@@ -166,7 +166,9 @@ export default function SkillsCloud({ skills }: SkillsCloudProps) {
         );
       });
 
-    return () => simulation.stop();
+    return () => {
+      simulation.stop();
+    }
   }, [packedBalls, shouldReduceMotion, size.height, size.width]);
 
   const selectedSkill =
