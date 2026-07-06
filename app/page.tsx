@@ -1,3 +1,4 @@
+import Footer from "@/components/layout/Footer";
 import ExperienceSection from "@/components/sections/experience/ExperienceSection";
 import Hero from "@/components/sections/hero/Hero";
 
@@ -6,6 +7,7 @@ export default function Home() {
     <main className="portfolio-grid min-h-screen w-full bg-surface-soft">
       <Hero />
       <ExperienceSection />
+      <Footer />
     </main>
   );
 }

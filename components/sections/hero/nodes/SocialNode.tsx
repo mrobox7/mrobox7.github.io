@@ -52,6 +52,7 @@ export default function SocialNode({ data }: NodeProps<SocialNodeType>) {
           fill
           className="object-contain"
           sizes="100vw"
+          unoptimized
         />
       </div>
     </BaseNode>

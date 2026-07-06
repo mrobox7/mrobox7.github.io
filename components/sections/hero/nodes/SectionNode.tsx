@@ -3,13 +3,15 @@
 import { type Node, type NodeProps } from "@xyflow/react";
 import type { LucideIcon } from "lucide-react";
 import { ExternalLink } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 import BaseNode from "./BaseNode";
 
 type SectionData = {
+  sectionId: string;
   title: string;
   icon?: LucideIcon;
-  onClick?: () => void;
+  href?: string;
   size?: "sm" | "md" | "lg";
   accentColor?: string;
 };
@@ -19,19 +21,36 @@ type SectionNodeType = Node<SectionData>;
 export default function SectionNode({
   data,
 }: NodeProps<SectionNodeType>) {
+  const router = useRouter();
+
   const {
     title,
     icon: Icon,
-    onClick,
     size = "md",
     accentColor,
   } = data;
+
+  const handleClick = () => {
+    if (data.href) {
+      router.push(data.href);
+      return;
+    }
+
+    if (data.sectionId) {
+      document
+        .getElementById(data.sectionId)
+        ?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+    }
+  };
 
   return (
     <BaseNode
       size={size}
       accentColor={accentColor}
-      onClick={onClick}
+      onClick={handleClick}
       overlay={{
         initialHeight: 0,
         content: (

@@ -60,9 +60,7 @@ export default function ProfileNode({ data }: NodeProps<ProfileNodeType>) {
               group-hover:translate-y-0
             "
             >
-              Full Stack Builder
-              <br />
-              AI • React • Next.js
+              Building intuitive products where thoughtful design meets solid engineering.
             </div>
           </div>
         ),

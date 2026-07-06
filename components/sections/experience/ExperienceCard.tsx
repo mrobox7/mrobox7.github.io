@@ -6,7 +6,7 @@ import { motion, useReducedMotion, type Variants } from "framer-motion";
 import type { Experience } from "@/data/experiences";
 import { skillById } from "@/data/skills";
 
-import TechBadge from "./TechBadge";
+import TechBadge from "../../ui/TechBadge";
 
 type ExperienceCardProps = {
   experience: Experience;

@@ -1,5 +1,5 @@
 import { Node, Edge } from "@xyflow/react";
-import { BriefcaseBusiness, NotebookPen } from "lucide-react";
+import { BriefcaseBusiness, Laptop, NotebookPen } from "lucide-react";
 
 export const nodes: Node[] = [
   {
@@ -45,7 +45,7 @@ export const nodes: Node[] = [
     position: { x: 175, y: 382 }, // adjust visually
     data: {
       href: "https://www.linkedin.com/in/mohit-bajaj-775693214/",
-      image: "/linkedin.png",
+      image: "/linkedin-logo.png",
       size: "xs",
       accentColor: "#0A66C2",
     },
@@ -57,7 +57,7 @@ export const nodes: Node[] = [
     position: { x: 105, y: 318 }, // adjust visually
     data: {
       href: "https://instagram.com/wtfisbajaj",
-      image: "/instagram.png",
+      image: "/instagram-logo.png",
       size: "xs",
       accentColor: "#E4405F",
     },
@@ -68,15 +68,11 @@ export const nodes: Node[] = [
     type: "section",
     position: { x: 602.1278688524591, y: 178.81311475409836 },
     data: {
+      sectionId: "experience",
       title: "Experience",
       icon: BriefcaseBusiness,
       size: "md",
       accentColor: "#FF8904",
-      onClick: () => {
-        document
-          .getElementById("experience")
-          ?.scrollIntoView({ behavior: "smooth", block: "start" });
-      },
     },
   },
 
@@ -85,7 +81,7 @@ export const nodes: Node[] = [
     type: "social",
     position: { x: 735, y: 112 },
     data: {
-      href: "https://instagram.com/wtfisbajaj",
+      href: "https://www.cuemath.com/en-in/",
       image: "/cuemath.png",
       size: "xs",
       accentColor: "#FFFFFF",
@@ -97,7 +93,10 @@ export const nodes: Node[] = [
     type: "section",
     position: { x: 557.1278688524591, y: 338.81311475409836 },
     data: {
+      sectionId: "projects",
       title: "Projects",
+      icon: Laptop,
+      href: "/projects",
       size: "md",
       accentColor: "#22c55e",
     },
@@ -108,8 +107,10 @@ export const nodes: Node[] = [
     type: "section",
     position: { x: 187.92131147540977, y: 48.31475409836068 },
     data: {
+      sectionId: "blog",
       title: "Blog",
       icon: NotebookPen,
+      href: "/blog",
       size: "sm",
       accentColor: "#F2003C",
     },
@@ -123,6 +124,18 @@ export const nodes: Node[] = [
       username: "mrobox7",
       accentColor: "#f89f1b",
       size: "lg",
+    },
+  },
+
+  {
+    id: "star-project",
+    type: "social",
+    position: { x: 667, y: 312 },
+    data: {
+      href: "https://mrobox7-portfolio.netlify.app/",
+      image: "/star.png",
+      size: "xs",
+      accentColor: "#FFFFFF",
     },
   },
 ];
@@ -172,5 +185,10 @@ export const edges: Edge[] = [
     id: "9",
     source: "experience",
     target: "cuemath",
+  },
+  {
+    id: "10",
+    source: "projects",
+    target: "star-project",
   },
 ];

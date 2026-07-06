@@ -10,7 +10,13 @@ import {
 
 import "@xyflow/react/dist/style.css";
 
-import { ProfileNode,LeetcodeNode, ResumeNode, SectionNode, SocialNode } from "./nodes";
+import {
+  ProfileNode,
+  LeetcodeNode,
+  ResumeNode,
+  SectionNode,
+  SocialNode,
+} from "./nodes";
 
 import FloatingEdge from "./edge/FloatingEdge";
 import FloatingConnectionLine from "./edge/FloatingConnectionLine";
@@ -45,7 +51,7 @@ export default function Hero() {
         onEdgesChange={onEdgesChange}
         fitView
         fitViewOptions={{
-          padding: 0.15,
+          padding: 0.275,
         }}
         nodesDraggable
         nodesConnectable={false}
