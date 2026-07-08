@@ -1,7 +1,12 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
-export default function BlogPage() {
+import BlogCard from "@/components/ui/BlogCard";
+import { getBlogs } from "@/lib/blogs";
+
+export default async function BlogPage() {
+  const blogs = await getBlogs();
+
   return (
     <main className="relative isolate min-h-screen py-section">
       <div className="w-full px-md tablet:px-xl desktop:px-section">
@@ -15,30 +20,42 @@ export default function BlogPage() {
           </h1>
 
           <p className="mt-md text-body-md text-muted">
-            Thoughts on software engineering, frontend architecture,
-            AI, and the things I&apos;m learning along the way.
+            I write about software engineering, AI, frontend architecture,
+            and the lessons I learn while building products.
           </p>
         </header>
 
-        <section className="mt-xxl rounded-xl border border-hairline bg-canvas/80 p-xl backdrop-blur-sm">
-          <h2 className="font-sans text-title-lg text-ink">
-            Nothing here... yet.
-          </h2>
+        <div className="mt-lg flex flex-col gap-lg">
+          {blogs.length === 0 ? (
+            <section className="rounded-xl border border-hairline bg-canvas/80 p-xl backdrop-blur-sm">
+              <h2 className="font-display text-title-lg text-ink">
+                First article coming soon.
+              </h2>
 
-          <p className="mt-md max-w-2xl text-body-md text-muted">
-            I&apos;m currently working on long-form articles covering
-            interesting engineering problems, architecture decisions,
-            project breakdowns, and interview preparation.
-          </p>
+              <p className="mt-md max-w-2xl text-body-md text-muted">
+                I&apos;m currently working on my first long-form engineering
+                articles covering AI, frontend architecture, software
+                engineering, project breakdowns, and career lessons.
+                They&apos;ll appear here automatically as soon as they&apos;re
+                published on Dev.to.
+              </p>
+            </section>
+          ) : (
+            <section className="grid gap-xl tablet:grid-cols-1">
+              {blogs.map((blog) => (
+                <BlogCard key={blog.id} blog={blog} />
+              ))}
+            </section>
+          )}
 
           <Link
             href="/"
-            className="mt-xl inline-flex items-center gap-sm text-body-sm text-muted transition-colors hover:text-ink"
+            className="inline-flex w-fit items-center gap-sm text-body-sm text-muted transition-colors hover:text-ink"
           >
             <ArrowLeft className="size-4" />
             Back to Home
           </Link>
-        </section>
+        </div>
       </div>
     </main>
   );
