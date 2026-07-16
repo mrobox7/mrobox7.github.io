@@ -43,7 +43,7 @@ export default async function BlogPage() {
           ) : (
             <section className="grid gap-xl tablet:grid-cols-1">
               {blogs.map((blog) => (
-                <BlogCard key={blog.id} blog={blog} />
+                <BlogCard key={blog.id} id={blog.title} blog={blog} />
               ))}
             </section>
           )}

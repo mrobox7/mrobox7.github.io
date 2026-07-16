@@ -11,14 +11,16 @@ import {
 import type { Blog } from "@/lib/blogs";
 
 interface BlogCardProps {
+  id: string;
   blog: Blog;
 }
 
-export default function BlogCard({ blog }: BlogCardProps) {
+export default function BlogCard({ id, blog }: BlogCardProps) {
   const image = blog.cover_image || blog.social_image;
 
   return (
     <Link
+      id={id}
       href={blog.url}
       target="_blank"
       rel="noopener noreferrer"
