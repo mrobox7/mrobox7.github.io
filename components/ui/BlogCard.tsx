@@ -86,7 +86,7 @@ export default function BlogCard({ blog }: BlogCardProps) {
 
         {/* Image */}
         {image && (
-          <div className="order-1 relative aspect-video desktop:order-2 desktop:w-2/5 desktop:aspect-auto">
+          <div className="order-1 relative aspect-video desktop:order-2 desktop:w-2/5 desktop:aspect-video">
             <Image
               src={image}
               alt={blog.title}
