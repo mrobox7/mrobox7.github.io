@@ -5,6 +5,8 @@ export interface Blog {
   published_at: string;
   reading_time_minutes: number;
 
+  slug: string;
+
   tag_list: string[];
 
   cover_image: string | null;
