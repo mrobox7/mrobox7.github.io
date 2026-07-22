@@ -11,6 +11,14 @@ export default async function BlogPage() {
     <main className="relative isolate min-h-screen py-section">
       <div className="w-full px-md tablet:px-xl desktop:px-section">
         <header className="max-w-3xl">
+          <Link
+            href="/"
+            className="mb-md inline-flex w-fit items-center gap-sm text-body-sm text-muted transition-colors hover:text-ink"
+          >
+            <ArrowLeft className="size-4" />
+            Back to Home
+          </Link>
+
           <p className="mb-sm text-caption-uppercase uppercase text-muted">
             Writing
           </p>
@@ -47,14 +55,6 @@ export default async function BlogPage() {
               ))}
             </section>
           )}
-
-          <Link
-            href="/"
-            className="inline-flex w-fit items-center gap-sm text-body-sm text-muted transition-colors hover:text-ink"
-          >
-            <ArrowLeft className="size-4" />
-            Back to Home
-          </Link>
         </div>
       </div>
     </main>

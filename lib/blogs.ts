@@ -24,10 +24,10 @@ const USERNAME = "mohitbajaj";
 export async function getBlogs(): Promise<Blog[]> {
   try {
     const res = await fetch(
-      `https://dev.to/api/articles?username=${USERNAME}`,
+      `https://dev.to/api/articles?username=${USERNAME}&per_page=30`,
       {
         next: {
-          revalidate: 3600,
+          revalidate: 60,
         },
       }
     );
