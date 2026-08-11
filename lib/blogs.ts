@@ -26,6 +26,9 @@ export async function getBlogs(): Promise<Blog[]> {
     const res = await fetch(
       `https://dev.to/api/articles?username=${USERNAME}&per_page=30`,
       {
+        headers: {
+          "Accept-Encoding": "identity",
+        },
         next: {
           revalidate: 60,
         },
